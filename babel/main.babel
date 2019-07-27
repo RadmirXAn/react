@@ -1,0 +1,51 @@
+class MyreactComponent extends React.Component{
+ render(){
+ return <p>Hello {this.props.param_1}</p>;
+ }
+}
+
+class MyTextComponent extends React.Component{
+render(){
+return <p>{this.props.children}</p>;
+}
+}
+
+class MyLetterComponent extends React.Component{
+render(){
+return <div className="letter">{this.props.children}</div>;
+}
+}
+
+class MyLetterStyledComponent extends React.Component{
+render(){
+var letterStyle = {
+  padding: 10,
+  margin: 10,
+  backgroundColor: this.props.bgcolor || "#FFDE00",
+  color: "#333",
+  display: "inline-block",
+  fontFamily: "monospace",
+  fontSize: 32,
+  textAlign: "center"
+};
+return <div style={letterStyle}>{this.props.children}</div>;
+}
+}
+
+//ReactDOM.render(<h1>RadMirXAn</h1>,document.getElementById("container"));
+//ReactDOM.render(<MyreactComponent/>,document.getElementById("container"));
+ReactDOM.render(
+<div>
+<MyreactComponent param_1 = "RadMirXAn"/>
+<MyreactComponent param_1 = "World"/>
+<MyTextComponent>Lenovo</MyTextComponent>
+<MyLetterComponent>М</MyLetterComponent>
+<MyLetterComponent>И</MyLetterComponent>
+<MyLetterComponent>Р</MyLetterComponent>
+<br/>
+<MyLetterStyledComponent bgcolor="#FF0000">Д</MyLetterStyledComponent>
+<MyLetterStyledComponent bgcolor="#00FF00">О</MyLetterStyledComponent>
+<MyLetterStyledComponent bgcolor="#0000FF">М</MyLetterStyledComponent>
+<MyLetterStyledComponent>!</MyLetterStyledComponent>
+</div>
+,document.getElementById("container"));

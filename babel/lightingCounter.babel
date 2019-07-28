@@ -1,0 +1,75 @@
+class MyLCD extends React.Component{
+render(){
+
+var commonStyle = {
+margin: 0,
+padding: 0
+};
+
+var divStyle = {
+width: 250,
+textAlign: "center",
+backgroundColor: "black",
+padding: 40,
+fontFamily: "sans-serif",
+color: "#999",
+borderRadius: 10
+};
+
+var textStyles = {
+emphasis:{
+fontsize: 38,
+...commonStyle
+},
+smallEmphasis:{
+...commonStyle
+},
+small:{
+fonstSize: 17,
+opacity: 0.5,
+...commonStyle
+}
+};
+
+return <div style={divStyle}>
+<MyLC {...this.props} />
+<h2 style={textStyles.smallEmphasis}>ВСЫПЫШКИ МОЛНИИ</h2>
+<p style={textStyles.small}>(с момента запуска кода)</p>
+</div>;
+
+}
+}
+
+class MyLC extends React.Component{
+
+constructor(props){
+super(props);
+this.state = {
+strikes: 0
+}
+this.timerTick = this.timerTick.bind(this);
+}
+
+timerTick(){
+this.setState({
+strikes: this.state.strikes + Number(this.props.lc)
+});
+}
+
+componentDidMount(){
+ setInterval(this.timerTick, 1000);
+}
+
+render(){
+return <h1>{this.state.strikes}</h1>;
+}
+
+}
+
+ReactDOM.render(
+<div>
+<br/>
+<MyLCD lc = "5" />
+<MyLCD lc = "7" />
+</div>
+,document.getElementById("container"));

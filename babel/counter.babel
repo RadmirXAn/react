@@ -49,7 +49,14 @@ lineHeight: "3px"
 return <div style={backgroundStyle}>
 <MyCounter display={this.state.count}></MyCounter>
 <button onClick={this.increase} style={buttonStyle}>+</button>
+<MyPlussButton onClick={this.increase}></MyPlussButton>
 </div>;
+}
+}
+
+class MyPlussButton extends React.Component{
+render(){
+return <button>+</button>;
 }
 }
 

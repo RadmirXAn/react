@@ -32,6 +32,11 @@ return <div style={letterStyle}>{this.props.children}</div>;
 }
 }
 
+//Указываем дефолтное значение
+MyLetterStyledComponent.defaultProps = {
+bgcolor: "#1C89BF"
+};
+
 //ReactDOM.render(<h1>RadMirXAn</h1>,document.getElementById("container"));
 //ReactDOM.render(<MyreactComponent/>,document.getElementById("container"));
 ReactDOM.render(
